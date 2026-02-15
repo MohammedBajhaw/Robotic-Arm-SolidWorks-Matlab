@@ -1,0 +1,8 @@
+# MATLAB Cache & Generated Files
+*.slxc
+slprj/
+*.asv
+
+# SolidWorks Temp Files
+~$*.SLDPRT
+~$*.SLDASM
