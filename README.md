@@ -14,6 +14,11 @@ Designing a robotic arm is more than drawing parts: it has to move smoothly, car
 
 📄 **Project page:** [bajhaw.com/projects/robotic-arm-cad-simulation-control](https://bajhaw.com/projects/robotic-arm-cad-simulation-control)
 
+<p align="center">
+  <img src="docs/images/assembly-wide.png" alt="Robotic arm assembled from the SolidWorks parts" width="760"><br>
+  <em>The arm assembled from the exported SolidWorks parts (rendered from the project's CAD files).</em>
+</p>
+
 ---
 
 ## Contents
@@ -37,6 +42,22 @@ The repository contains two simulation models built from the same CAD workflow:
 |---|---|---|---|
 | **2-DOF tutorial arm** | 2 revolute joints (planar) | Closed-loop PID with inverse and forward kinematics | Study PID tuning: set a target point and see how the gains affect overshoot and settling time |
 | **Advanced arm** | Base turntable, shoulder, elbow and wrist, plus a two-finger gripper | Inverse kinematics driving joint angles directly | Move the end effector to a target point in 3D space |
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/images/tutorial-2dof.png" alt="2-DOF tutorial arm"></td>
+    <td width="50%"><img src="docs/images/assembly-side.png" alt="Side view of the advanced arm"></td>
+  </tr>
+  <tr>
+    <td><em>The 2-DOF tutorial arm.</em></td>
+    <td><em>Side view of the advanced arm.</em></td>
+  </tr>
+</table>
+
+<p align="center">
+  <img src="docs/images/workflow.png" alt="Project workflow" width="900"><br>
+  <em>The workflow: CAD to physical model, target point to joint angles, and control on top.</em>
+</p>
 
 ## Repository structure
 
@@ -65,6 +86,11 @@ Robotic-Arm-SolidWorks-Matlab/
 ## From CAD to a physical model
 
 The arm was modelled as separate parts in SolidWorks and assembled. The assembly carries each part's **mass, centre of mass and inertia tensor**, and is exported with the Simscape Multibody Link plug-in to an XML file, then imported with `smimport`. As a result, the simulated arm responds to gravity and joint loads like a physical one: for example, the base joint needs more torque to hold the pose when the arm is stretched out.
+
+<p align="center">
+  <img src="docs/images/parts-sheet.png" alt="Individual CAD parts" width="900"><br>
+  <em>The CAD parts: base, links, joint housing and the gripper finger, each shown on its own.</em>
+</p>
 
 ## Control
 
